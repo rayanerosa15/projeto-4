@@ -3,6 +3,7 @@ const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
+const botaoJogarNovamente = document.querySelector(".novamente-btn");
 
 const perguntas = [
     {
@@ -115,13 +116,18 @@ function respostaSelecionada(opcaoSelecionada){
 }
 
 function mostraResultado() {
-    caixaPerguntas.textContent = "No final da tosa:"; // Texto final ajustado
-    textoResultado.textContent = historiaFinal.trim(); // Mostrar a história final completa
-    caixaAlternativas.textContent = ""; // Limpar alternativas
+        caixaPerguntas.textContent = "Em 2049...";
+        textoResultado.textContent = historiaFinal;
+        caixaAlternativas.textContent = "";
+        botaoJogarNovamente.addEventListener("click", jogaNovamente());
 }
 
 function aleatorio (lista){
         const posicao = Math.floor(Math.random()* lista.length);
         return lista[posicao];
 }
-mostraPergunta()
+function jogaNovamente(){
+        atual = 0;
+        historiaFinal = "";
+        mostraPergunta();
+}
